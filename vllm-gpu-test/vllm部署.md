@@ -1,4 +1,6 @@
 
+- 租用实例
+![](attachments/Pasted%20image%2020250727121857.png)
 - 当前环境
 ![](attachments/Pasted%20image%2020250727113454.png)
 - 查看cuda版本
@@ -48,8 +50,14 @@ git clone https://github.com/vllm-project/vllm.git
 cd vllm
 python use_existing_torch.py
 pip install -r requirements/build.txt
+
+# 设置一下，避免被oom
+export MAX_JOBS=1
+
 pip install --no-build-isolation -e .
 
 ```
 开始编译
 ![](attachments/Pasted%20image%2020250727120310.png)
+编译成功
+![](attachments/Pasted%20image%2020250727123101.png)
