@@ -89,3 +89,28 @@ curl http://localhost:8001/v1/completions \
 ![](attachments/Pasted%20image%2020250727134740.png)
 - vllm server日志打印
 ![](attachments/Pasted%20image%2020250727135321.png)
+# 3.docker部署vllm
+- 搭建基础环境
+![](attachments/Pasted%20image%2020250803102931.png)
+- 拉取镜像
+![](attachments/Pasted%20image%2020250803103021.png)
+- 启动容器
+```shell
+docker run --runtime nvidia --gpus all -v /root/Qwen2.5-7B-Instruct:/root/Qwen2.5-7B-Instruct -p 8000:8000 --ipc=host vllm/vllm-openai:latest --model /root/Qwen2.5-7B-Instruct --trust-remote-code
+```
+![](attachments/Pasted%20image%2020250803153108.png)
+![](attachments/Pasted%20image%2020250803152727.png)
+![](attachments/Pasted%20image%2020250803152512.png)
+- 测试
+```shell
+curl http://8.145.33.205:8000/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -d '{
+    "model": "/root/Qwen2.5-7B-Instruct",   
+    "messages": [
+    {"role": "system", "content": "你是个友善的AI助手。"},
+    {"role": "user", "content": "介绍一下什么是大模型推理。" }
+    ]}'
+```
+![](attachments/Pasted%20image%2020250803152851.png)
+![](attachments/Pasted%20image%2020250803152952.png)
