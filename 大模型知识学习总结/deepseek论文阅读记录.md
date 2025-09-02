@@ -1,0 +1,33 @@
+## DeepSeek-V3
+- MLA,MHA
+- KV Cache：Attention机制进阶的核心
+	- 应用于推理阶段
+	- 只存在于解码器
+	- 加速QKV的矩阵相乘
+	- KVCache会增加内存占用
+- MQA：Multi-Query Attention:多头共享同一组key和value，存在精度损失
+	- 降低计算复杂度
+	- 更低内存使用率
+	- 保持性能
+- GQA：Group Query Attenttion：对key和value进行分组，降低精度损失
+	- 分组查询
+	- 共享key+value表示
+	- 高效计算
+- MLA：Multi Head Latent Attention 多头潜在注意力机制
+	- 低秩联合压缩/低秩投影，key+value，减小kvcache
+	- 缓存维度比较低的向量（位置向量+内容向量）进一步降低kvcache缓存
+	- 同时对Q向量也采用和kv的处理方式一样，也是一个低维度
+- 结构图
+	![](attachments/Pasted%20image%2020250903001706.png)
+- MOE（混合专家模型）-稀疏模型，简化计算量
+	- 稠密模型：当模型计算时，所有参数都会参与计算
+	- 稀疏模型：当模型计算时，部分参数激活计算，并非全部参数参与计算
+	- 共享专家+路由专家（Top K）
+		- 路由专家使用负载不均衡
+		- 偏置，辅助损失，动态调整
+- MTP（Multi-Token Prediction）
+	![](attachments/Pasted%20image%2020250903003853.png)
+	- 预测未来token
+	- 超参数（并行生成的token个数），交叉熵
+	- 将一个token生成转换为多个token，应用在训练和推理阶段
+	- 
