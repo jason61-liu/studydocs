@@ -1,0 +1,30 @@
+- 规划
+- 记忆：短期-长期
+- 工具
+- 智能代理分类：
+	- 行动代理：旨在决定行动序列
+	- 模拟代理：设计用于角色扮演，在模拟环境中进行
+	- 自主智能体：
+- 技术维度agent分类：
+	- Chatbots：customer support；code assistant；prompt generation from user requirement
+	- Multi-Agent-Systems: 2 agents collaboration-为每个任务或领域创建一个专门代理，并将任务路由到正确的“专家”，agent supervisor 代理监督员
+	- RAG：Adaptive RAG；Agentic RAG；Corrective RAG纠正性RAG；self-RAG
+	- Planning Agents：基于规划
+	- Reflection&Critique：反思或批判，language agent tree search-语言代理树搜索
+	- Evaluation：
+- 智能程度分类：
+	- simple reflex agents：简单反射代理，基于当前感知做出决策，忽所有先前的感知历史
+	- model-based relex agent：基于模型的反射代理，在部分可观察的环境中工作，并跟踪情况，他们拥有模型和内部状态
+	- Goal-based agents：目标型代理，需要知道他们的目标，即描述理想情况的信息，称为搜索和规划
+	- utility-based agent：效用型代理，不仅考虑目标，还考虑实现目标的最佳方式
+	- learning agents：学习型代理，从过去经验中学习，随着时间的诡异提高其性能
+-  agent开发框架
+	- langchain：从agent开启，测试到部署全生命周期的应用框架
+	- LlamaIndex：为LLM应用程序量身打造的数据框架
+	- Semantic Kernel：微软开源项目，帮助开发者轻松集成和使用LLMs等AI技术的开发框架，从而提升应用程序的智能交互和处理能力
+- 生产部署平台：
+	- ollama
+	- vllm
+	- sglang
+- 评估平台Agent Evaluatin：
+	- LangSmith
